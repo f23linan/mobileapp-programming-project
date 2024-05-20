@@ -10,8 +10,15 @@ public class Dogs {
     @SerializedName("name")
     public String name;
 
+
+    @SerializedName("location")
     public String location;
+
+    @SerializedName("size")
+
     public String size;
+    @SerializedName("cost")
+
     public String cost;
     public Dogs() {
         name = "Breed name:";
@@ -22,22 +29,21 @@ public class Dogs {
 
     public Dogs(String name) {
         this.name = name;
+        this.cost = cost;
+        this.location = location;
+        this.size = size;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return name;
-        return location;
-        return size;
-        return cost;
+        return "Name: " + name + ", Location: " + location + ", Size: " + size + ", Cost: " + cost;
     }
 
     public String getTitle() {
-        return name;
-        return location;
-        return size;
-        return cost;
+        return "Name: " + name + ", Location: " + location + ", Size: " + size + ", Cost: " + cost;
+
+
     }
 
 }

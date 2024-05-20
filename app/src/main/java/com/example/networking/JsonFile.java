@@ -1,7 +1,8 @@
 package com.example.networking;
 
-import android.app.Activity;
 import android.util.Log;
+
+import com.example.project.MainActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,9 +11,9 @@ import java.util.Scanner;
 public class JsonFile {
 
     private final JsonTask.JsonTaskListener listener;
-    private final Activity activity;
+    private final MainActivity activity;
 
-    public JsonFile(Activity activity, JsonTask.JsonTaskListener listener) {
+    public JsonFile(MainActivity activity, JsonTask.JsonTaskListener listener) {
         this.activity = activity;
         this.listener = listener;
     }

@@ -9,32 +9,40 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.networking.Dogs;
+import com.example.networking.JsonFile;
+import com.example.networking.JsonTask;
+import com.example.networking.RecyclerViewAdapter;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.nio.channels.AsynchronousFileChannel;
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    @SuppressWarnings("FieldCanBeLocal")
-    public class MainActivity extends AppCompatActivity implements com.example.networking.JsonTask.JsonTaskListener {
+@SuppressWarnings("FieldCanBeLocal")
+    public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
-        private ArrayList<Mountain> mountainlist = new ArrayList<>();
+        private ArrayList<Dogs> Breeds = new ArrayList<>();
         private RecyclerViewAdapter adapter;
 
         private final String JSON_URL = "https://mobprog.webug.se/json-api?login=f23linan";
-    }
+        private final String JSON_FILE = "dogs.json";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        new com.example.networking.JsonFile(this, this).execute(JSON_URL);
-        Log.d("Hej", " "+mountainlist.size());
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mountainlist, new RecyclerViewAdapter.OnClickListener() {
+
+        new JsonFile(this, this).execute(JSON_FILE);
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, Breeds, new RecyclerViewAdapter.OnClickListener() {
             @Override
-            public void onClick(Mountain item) {
+            public void onClick(Dogs item) {
                 Toast.makeText(MainActivity.this, item.toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -49,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
     public void onPostExecute(String json) {
         Log.d("MainActivity", json);
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Mountain>>() {
+        Type type = new TypeToken<List<Dogs>>() {
         }.getType();
-        mountainlist = gson.fromJson(json, type);
+        Breeds = gson.fromJson(json, type);
         // adapter.notifyDataSetChanged();
     }
-}
+    }
