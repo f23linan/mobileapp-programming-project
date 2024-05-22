@@ -9,15 +9,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.networking.Dogs;
-import com.example.networking.JsonFile;
-import com.example.networking.JsonTask;
-import com.example.networking.RecyclerViewAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.nio.channels.AsynchronousFileChannel;
 import java.util.ArrayList;
 import java.util.List;
 

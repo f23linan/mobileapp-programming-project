@@ -1,4 +1,4 @@
-package com.example.networking;
+package com.example.project;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,15 +11,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.project.R;
-
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private List<com.example.networking.Dogs> items;
+    private List<Dogs> items;
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
-    public RecyclerViewAdapter(Context context, List<com.example.networking.Dogs> items, OnClickListener onClickListener) {
+    RecyclerViewAdapter(Context context, List<Dogs> items, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         this.onClickListener = onClickListener;
@@ -57,6 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public interface OnClickListener {
-        void onClick(com.example.networking.Dogs item);
+        void onClick(Dogs item);
     }
 }
