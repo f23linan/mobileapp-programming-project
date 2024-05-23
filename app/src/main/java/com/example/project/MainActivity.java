@@ -1,7 +1,10 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +28,9 @@ import java.util.List;
         private final String JSON_URL = "https://mobprog.webug.se/json-api?login=f23linan";
         private final String JSON_FILE = "dogs.json";
 
+    public MainActivity() {
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,21 @@ import java.util.List;
         RecyclerView view = findViewById(R.id.recycler_view);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
+
+        Button b = findViewById(R.id.knapp1);
+
+        b.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>","Lets go!");
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                intent.putExtra("name", "Välkommen! :D"); // Optional
+                intent.putExtra("number", 55); // Optional
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -57,4 +78,6 @@ import java.util.List;
         Breeds = gson.fromJson(json, type);
         // adapter.notifyDataSetChanged();
     }
+
+
     }
