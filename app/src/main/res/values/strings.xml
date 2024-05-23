@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BarkApp</string>
+    <string name="welcome">Välkommen till BarkApp!</string>
+    <string name="about">Vi är här för alla som älskar hundar och vill lära sig om alla unika raser som finns. Välkommen.</string>
 </resources>

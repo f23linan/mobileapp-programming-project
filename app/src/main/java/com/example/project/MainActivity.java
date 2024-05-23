@@ -62,8 +62,6 @@ import java.util.List;
             public void onClick(View view) {
                 Log.d("==>","Lets go!");
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                intent.putExtra("name", "Välkommen! :D"); // Optional
-                intent.putExtra("number", 55); // Optional
                 startActivity(intent);
             }
         });
